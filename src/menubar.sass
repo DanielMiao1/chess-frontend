@@ -1,0 +1,55 @@
+@use "animations"
+@use "settings"
+@import url("https://fonts.googleapis.com/css2?family=Smooch+Sans&display=swap")
+@import url('https://fonts.googleapis.com/css2?family=Dosis&display=swap')
+
+h1, .nav
+  text-align: center
+  animation: fade-in 0.75s normal
+
+h1
+  font-size: 100px
+  font-family: "Smooch Sans", sans-serif
+
+.nav
+  a
+    @media only screen and (min-width: 769px)
+      &:hover
+        .hover
+          width: 100%
+          transition: 500ms
+        
+        color: var(--background-color)
+        font-weight: bold
+        transition: 500ms color
+
+      .hover
+        background-color: var(--text-color)
+        position: absolute
+        z-index: -1
+        width: 0%
+        top: 0
+        left: 0
+        height: 100%
+        transition: 500ms
+    
+    @media only screen and (max-width: 768px)
+      &:hover
+        background: var(--text-color)
+        color: var(--background-color)
+        font-weight: bold
+
+      .hover
+        display: none
+
+    position: relative
+    font-family: "Dosis", sans-serif
+    text-decoration: none
+    font-size: 17px
+    color: var(--text-color)
+    background-color: transparent
+    padding:
+      left: 10px
+      right: 10px
+      top: 5px
+      bottom: 5px

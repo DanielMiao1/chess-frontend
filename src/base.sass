@@ -1,0 +1,49 @@
+@use "settings"
+@import url("https://fonts.googleapis.com/css2?family=Smooch+Sans&display=swap")
+
+*
+  text-align: center
+
+  &:focus-visible
+    outline-offset: 2px
+    outline: 1px solid black
+
+body
+  background-color: var(--background-color)
+  color: var(--text-color)
+
+button
+  font:
+    family: "Dosis", sans-serif
+    weight: 500
+    size: 15px
+  
+  cursor: pointer
+
+h1[id^="title"]
+  font-size: 100px
+  font-family: "Smooch Sans", sans-serif
+  text-align: center
+  animation: fade-in 0.75s normal
+
+h1#title-small
+  font-size: 60px
+
+button.button
+  border-radius: 5px
+  border: 1px solid rgba(1, 1, 1, 0.1)
+  padding:
+    left: 15px
+    right: 15px
+    top: 10px
+    bottom: 10px
+  background-color: transparent
+  transition: 500ms
+
+  &:hover
+    border: 1px solid transparent
+    background-color: rgba(1, 1, 1, 0.1)
+  
+  &:focus:not(:focus-visible)
+    border: 1px solid transparent
+    background-color: rgba(1, 1, 1, 0.15)

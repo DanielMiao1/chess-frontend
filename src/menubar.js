@@ -1,7 +1,7 @@
 import './menubar.sass';
 
 function Navigation() {
-  let pages = [["Homepage", "/"], ["New Game", "/"], ["Legacy Chess", ["http://legacy.chess.rf.gd/"]]];
+  let pages = [["Homepage", "/"], ["New Game", "/create"], ["Legacy Chess", "http://legacy.chess.rf.gd/"]];
   return (
     <div className="nav">
       {
@@ -18,8 +18,4 @@ function Navigation() {
   );
 };
 
-function MenuTitle() {
-  return <h1 id="title">Chess</h1>
-}
-
-export {Navigation, MenuTitle};
+export { Navigation };

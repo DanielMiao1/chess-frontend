@@ -1,15 +1,6 @@
 @use "animations"
 @use "settings"
-@import url("https://fonts.googleapis.com/css2?family=Smooch+Sans&display=swap")
 @import url('https://fonts.googleapis.com/css2?family=Dosis&display=swap')
-
-h1, .nav
-  text-align: center
-  animation: fade-in 0.75s normal
-
-h1
-  font-size: 100px
-  font-family: "Smooch Sans", sans-serif
 
 .nav
   a
@@ -20,7 +11,6 @@ h1
           transition: 500ms
         
         color: var(--background-color)
-        font-weight: bold
         transition: 500ms color
 
       .hover
@@ -37,12 +27,12 @@ h1
       &:hover
         background: var(--text-color)
         color: var(--background-color)
-        font-weight: bold
 
       .hover
         display: none
 
     position: relative
+    font-weight: 500
     font-family: "Dosis", sans-serif
     text-decoration: none
     font-size: 17px
@@ -53,3 +43,5 @@ h1
       right: 10px
       top: 5px
       bottom: 5px
+
+  animation: fade-in 0.75s normal

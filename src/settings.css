@@ -7,3 +7,8 @@ body[data-theme="dark"] {
   --background-color: black;
   --text-color: white;
 }
+
+body {
+  --square-light-color: #EEE;
+  --square-dark-color: #AAA;
+}

@@ -1,0 +1,72 @@
+div#board
+  display: grid
+  grid-template-columns: auto auto auto auto auto auto auto auto
+  max-width: calc(9.5vmin * 8)
+  position: absolute
+  left: 50%
+  transform: translateX(-50%)
+
+  div.square
+    cursor: pointer
+    width: 9.5vmin
+    height: 9.5vmin
+
+    &.light
+      background-color: var(--square-light-color)
+    
+    &.dark
+      background-color: var(--square-dark-color)
+    
+    & div.piece
+      width: 9.5vmin
+      height: 9.5vmin
+      background-size: contain
+
+      &.selected
+        background-color: rgba(0, 0, 0, 0.5)
+
+      &.br
+        background-image: url("../../public/images/black_rook.png")
+
+      &.bn
+        background-image: url("../../public/images/black_knight.png")
+      
+      &.bb
+        background-image: url("../../public/images/black_bishop.png")
+      
+      &.bq
+        background-image: url("../../public/images/black_queen.png")
+      
+      &.bk
+        background-image: url("../../public/images/black_king.png")
+      
+      &.bp
+        background-image: url("../../public/images/black_pawn.png")
+      
+      &.wr
+        background-image: url("../../public/images/white_rook.png")
+
+      &.wn
+        background-image: url("../../public/images/white_knight.png")
+      
+      &.wb
+        background-image: url("../../public/images/white_bishop.png")
+      
+      &.wq
+        background-image: url("../../public/images/white_queen.png")
+      
+      &.wk
+        background-image: url("../../public/images/white_king.png")
+      
+      &.wp
+        background-image: url("../../public/images/white_pawn.png")
+    
+    & div.bullet
+      width: 9.5vmin
+      height: 9.5vmin
+      background:
+        size: contain
+        image: url("../../public/images/bullet.png")
+      
+      &:hover
+        background-color: rgba(0, 0, 0, 0.2)

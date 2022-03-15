@@ -5,6 +5,7 @@ import { Route, Routes, BrowserRouter } from "react-router-dom";
 import Game from "./pages/game";
 import Main from "./pages/App"
 import NewGame from "./pages/new_game";
+import Navigation from './menubar';
 
 // import reportWebVitals from './reportWebVitals';
 
@@ -12,6 +13,7 @@ import './index.css';
 
 ReactDOM.render(
   <BrowserRouter>
+    <Navigation/>
     <Routes>
       <Route exact path="" element={<Main/>}/>
       <Route exact path="create" element={<NewGame/>}/>

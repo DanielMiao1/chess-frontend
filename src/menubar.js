@@ -1,21 +1,32 @@
 import './menubar.sass';
+import { Link } from "react-router-dom";
 
 function Navigation() {
-  let pages = [["Homepage", "/"], ["New Game", "/create"], ["Legacy Chess", "http://legacy.chess.rf.gd/"]];
+  // let pages = [["Homepage", "/"], ["New Game", "/create"], ["Legacy Chess", "http://legacy.chess.rf.gd/"]];
   return (
     <div className="nav">
-      {
-        pages.map(function(i) {
-          return (
-            <a href={i[1]} key={pages.indexOf(i)}>
-              {i[0]}
-              <div className="hover" style={{}}></div>
-            </a>
-          );
-        })
-      }
+      <ul>
+        <Link to="/">
+          <li style={{fontFamily: "'Smooch Sans', sans-serif", fontSize: "20px", fontWeight: "600"}}>
+            Chess
+            <div className="hover" style={{}}></div>
+          </li>
+        </Link>
+        <Link to="/create">
+          <li>
+            New Game
+            <div className="hover" style={{}}></div>
+          </li>
+        </Link>
+        <a href="http://legacy.chess.rf.gd">
+          <li>
+            Legacy Chess
+            <div className="hover" style={{}}></div>
+          </li>
+        </a>
+      </ul>
     </div>
   );
 };
 
-export { Navigation };
+export default Navigation;

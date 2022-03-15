@@ -3,45 +3,53 @@
 @import url('https://fonts.googleapis.com/css2?family=Dosis&display=swap')
 
 .nav
-  a
-    @media only screen and (min-width: 769px)
-      &:hover
+  ul
+    li
+      @media only screen and (min-width: 769px)
+        &:hover
+          .hover
+            width: 100%
+            transition: 500ms
+          
+          color: var(--background-color)
+          transition: 500ms color
+
         .hover
-          width: 100%
+          background-color: var(--text-color)
+          position: absolute
+          z-index: -1
+          width: 0%
+          top: 0
+          left: 0
+          height: 100%
           transition: 500ms
-        
-        color: var(--background-color)
-        transition: 500ms color
+      
+      @media only screen and (max-width: 768px)
+        &:hover
+          background: var(--text-color)
+          color: var(--background-color)
 
-      .hover
-        background-color: var(--text-color)
-        position: absolute
-        z-index: -1
-        width: 0%
-        top: 0
-        left: 0
-        height: 100%
-        transition: 500ms
+        .hover
+          display: none
+
+      position: relative
+      font-weight: 500
+      font-family: "Dosis", sans-serif
+      text-decoration: none !important
+      font-size: 17px
+      color: var(--text-color)
+      background-color: transparent
+      list-style: none
+      display: inline
+      padding:
+        left: 10px
+        right: 10px
+        top: 5px
+        bottom: 5px
     
-    @media only screen and (max-width: 768px)
-      &:hover
-        background: var(--text-color)
-        color: var(--background-color)
-
-      .hover
-        display: none
-
-    position: relative
-    font-weight: 500
-    font-family: "Dosis", sans-serif
-    text-decoration: none
-    font-size: 17px
-    color: var(--text-color)
-    background-color: transparent
-    padding:
-      left: 10px
-      right: 10px
-      top: 5px
-      bottom: 5px
+    a
+      text-decoration: none !important
+    
+    padding: 0
 
   animation: fade-in 0.75s normal

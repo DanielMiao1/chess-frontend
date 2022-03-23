@@ -9,7 +9,7 @@ export default function NewGame() {
       <br/>
       <Radio1 values={["Play with the computer", "2 Players"]} onselect={function(new_value) {console.log(new_value)}}/>
       <br/>
-      <button className="button button-large" onClick={function() { document.location = "/game/1" }}>Start Game</button>
+      <button className="button button-large" onClick={function() { document.location = "#/game/1" }}>Start Game</button>
     </div>
   );
 };

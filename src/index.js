@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Route, Routes, BrowserRouter } from "react-router-dom";
+import { Route, Routes, HashRouter } from "react-router-dom";
 
 import Game from "./pages/game";
 import Main from "./pages/App"
@@ -12,7 +12,7 @@ import Navigation from './menubar';
 import './index.css';
 
 ReactDOM.render(
-  <BrowserRouter>
+  <HashRouter>
     <Navigation/>
     <Routes>
       <Route exact path="" element={<Main/>}/>
@@ -21,7 +21,7 @@ ReactDOM.render(
         <Route exact path=":id" element={<Game/>}/>
       </Route>
     </Routes>
-  </BrowserRouter>,
+  </HashRouter>,
   document.getElementById('root')
 );
 

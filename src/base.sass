@@ -3,10 +3,11 @@
 
 *
   text-align: center
+  color: var(--text-color)
 
   &:focus-visible
     outline-offset: 2px
-    outline: 1px solid black
+    outline: 1px solid var(--text-color)
 
 body
   background-color: var(--background-color)
@@ -33,7 +34,7 @@ h1#title-small
 
 button.button
   border-radius: 5px
-  border: 1px solid rgba(1, 1, 1, 0.1)
+  border: 1px solid var(--background-color-darker)
   padding:
     left: 15px
     right: 15px
@@ -44,8 +45,8 @@ button.button
 
   &:hover
     border: 1px solid transparent
-    background-color: rgba(1, 1, 1, 0.1)
+    background-color: var(--background-color-darker)
   
   &:focus:not(:focus-visible)
     border: 1px solid transparent
-    background-color: rgba(1, 1, 1, 0.15)
+    background-color: var(--background-color-darkest)

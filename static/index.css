@@ -1,0 +1,46 @@
+:root {
+	--text-color-primary: black;
+	--background-color-primary: white;
+	--background-color-secondary: #f1f1f1;
+}
+
+:root {
+	height: 100%
+}
+
+body {
+	font-family: Arial, Helvetica, sans-serif;
+	background-color: var(--background-color-primary);
+	margin: 0px;
+	padding: 0px;
+	text-align: center;
+	height: 100%;
+	display: flex;
+	display: -webkit-flex;
+	flex-direction: column;
+	-webkit-flex-direction: column;
+}
+
+header {
+	background-color: var(--background-color-secondary);
+	padding: 15px;
+}
+
+nav ul {
+	list-style: none;
+	padding: 0px;
+}
+
+nav li {
+	font-family: "Barlow Condensed", sans-serif;
+}
+
+nav a {
+	color: var(--text-color-primary);
+	text-decoration: none;
+}
+
+h1 {
+	font-family: "Bebas Neue", sans-serif;
+	font-size: 2em;
+}

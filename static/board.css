@@ -1,0 +1,42 @@
+.board {
+	--square-width: 8vm;
+	--square-height: 8vm;
+	--square-width: 8vmin;
+	--square-height: 8vmin;
+}
+
+.square {
+	width: var(--square-width);
+	height: var(--square-height);
+}
+
+.square.light {
+	background-color: #eee;
+}
+
+.square.dark {
+	background-color: #333;
+}
+
+.board {
+	width: calc(var(--square-width) * 8);
+}
+
+.board .squares {
+	display: flex;
+	flex-wrap: wrap;
+	width: calc(var(--square-width) * 8);
+}
+
+.board {
+	margin-left: 50%;
+	transform: translateX(-50%);
+}
+
+.board-wrapper {
+	margin-top: 50px;
+	margin-bottom: 20px;
+	width: 100%;
+	flex-grow: 1;
+	-webkit-flex-grow: 1;
+}

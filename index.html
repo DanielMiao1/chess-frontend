@@ -12,7 +12,7 @@
 	</head>
 	<body>
 		<header>
-			<h1>Multiplayer Online Chess</h1>
+			<h1><a href="/">Multiplayer Online Chess</a></h1>
 			<nav>
 				<ul>
 					<li><a href="/games.html">Games</a></li>
@@ -20,15 +20,16 @@
 				</ul>
 			</nav>
 		</header>
-		<p id="description">An open-source chess website</p>
+		<p id="description">An open-source and completely free-to-use chess website</p>
 		<section>
-			<h2>Start a game</h2>
-			<button>With the computer</button>
-			<button>With another player</button>
+			<button><h2><a href="/games.html">Start a game</a></h2></button>
+			<p class="caption">Start a game with the popular chess engine <a href="https://stockfishchess.org/">Stockfish</a>, <a href="https://github.com/nmrugg/stockfish.js">ported to WebAssembly</a> by <a href="https://github.com/nmrugg">@nmrugg</a> (v15). Or, generate a game link to share and start a game with other people.</p>
 		</section>
 		<section>
-			<h2>Analyze a position</h2>
+			<button><h2><a href="/analysis.html">Analyze a position</a></h2></button>
+			<p class="caption">Use this tool to evaluate and find the best move of a position. Positions can be imported in PGN or FEN format, or simply play the moves leading to the position.</p>
 		</section>
-		<script src="/static/index.js"></script>
+		<p id="website_details">This chess website, made with Node.js (express) and HTML, is completely free-to-use, and is hosted mainly on <a href="https://vercel.com/">Vercel</a>. DDoS mitigation, caching, and (reverse-)proxying for this website is provided by <a href="https://cloudflare.com/">Cloudflare</a>. This website uses the chess.js library for PGN and FEN importing, move validation, and other board-related logical operations. All modules and libraries used in this website (which are: (1) the WASM-ported Stockfish program, (2) chess.js) are <i>unmodified</i>. The source of this website can be found <a href="https://github.com/DanielMiao1/chess-frontend/">here (source of frontend)</a> and <a href="https://github.com/DanielMiao1/chess-backend-validation">here (source of backend)</a>. Both source code repositories of this website are licensed under the GNU General Public License v3.0.</p>
+		<script src="/static/games.js"></script>
 	</body>
 </html>

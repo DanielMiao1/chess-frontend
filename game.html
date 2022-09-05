@@ -4,12 +4,13 @@
 		<meta charset="UTF-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Chess</title>
+		<title>Analysis</title>
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed&family=Bebas+Neue&display=swap" rel="stylesheet"> 
 		<link rel="stylesheet" href="/static/index.css">
-    <link rel="stylesheet" href="/static/games.css">
+		<link rel="stylesheet" href="/static/board.css">
+		<link rel="stylesheet" href="/static/analysis.css">
 	</head>
 	<body>
 		<header>
@@ -21,32 +22,20 @@
 				</ul>
 			</nav>
 		</header>
-		<p id="description">Create a Game</p>
-    <section id="controls">
-      <div class="time">
-        <h2>Time Control</h2>
-      </div>
-    </section>
-    <table id="start">
-      <tbody>
-        <tr>
-          <td>
-            <button onclick="newComputerGame();">Start a game with the computer</button>
-          </td>
-          <td>
-            <button>Start a game with another player</button>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <p class="caption">Play with the Stockfish 15 engine</p>
-          </td>
-          <td>
-            <p class="caption">Generate a game link for others to join</p>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+		<div class="board-wrapper"></div>
 		<script src="/static/games.js"></script>
+		<script src="/static/board.js"></script>
+		<script>
+      const params = new Proxy(new URLSearchParams(window.location.search), {
+        get: (searchParams, prop) => searchParams.get(prop),
+      });
+      fetch("http://localhost:34874/state/" + params.id.toString()).then(function(response) {
+        return response.json();
+      }).then(function(response) {
+        console.log(response)
+      })
+			let element = document.getElementsByClassName("board-wrapper")[0];
+			board(element);
+		</script>
 	</body>
 </html>

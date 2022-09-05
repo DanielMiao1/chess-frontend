@@ -26,6 +26,10 @@ header {
 	padding: 15px;
 }
 
+a {
+	color: inherit;
+}
+
 nav ul {
 	list-style: none;
 	padding: 0px;
@@ -35,12 +39,24 @@ nav li {
 	font-family: "Barlow Condensed", sans-serif;
 }
 
-nav a {
-	color: var(--text-color-primary);
+nav a,
+header a,
+button a {
 	text-decoration: none;
 }
 
 h1 {
 	font-family: "Bebas Neue", sans-serif;
 	font-size: 2em;
+}
+
+.caption {
+  color: #777;
+  font-size: 0.75em;
+}
+
+#website_details {
+	margin-top: 100px;
+	padding-left: 20vw;
+	padding-right: 20vw;
 }

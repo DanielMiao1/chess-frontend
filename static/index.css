@@ -1,11 +1,11 @@
 @font-face {
 	font-family: "Bebas Neue";
-	src: url("/static/fonts/BebasNeue-Regular.woff2")
+	src: url("/static/fonts/BebasNeue/BebasNeue-Regular.woff2")
 }
 
 @font-face {
 	font-family: "Barlow Condensed";
-	src: url("/static/fonts/BarlowCondensed-Regular.woff2")
+	src: url("/static/fonts/BarlowCondensed/BarlowCondensed-Regular.woff2")
 }
 
 :root {

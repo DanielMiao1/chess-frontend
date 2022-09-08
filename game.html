@@ -26,7 +26,7 @@
       const params = new Proxy(new URLSearchParams(window.location.search), {
         get: (searchParams, prop) => searchParams.get(prop),
       });
-      fetch("http://localhost:34874/state/" + params.id.toString()).then(function(response) {
+      fetch(validation_url + "/state/" + params.id.toString()).then(function(response) {
         return response.json();
       }).then(function(response) {
         console.log(response)

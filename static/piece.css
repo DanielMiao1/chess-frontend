@@ -1,0 +1,53 @@
+.piece {
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: absolute;
+}
+
+.piece._w.p {
+  background-image: url("/static/images/pieces/wP.svg");
+}
+
+.piece._w.n {
+  background-image: url("/static/images/pieces/wN.svg");
+}
+
+.piece._w.b {
+  background-image: url("/static/images/pieces/wB.svg");
+}
+
+.piece._w.r {
+  background-image: url("/static/images/pieces/wR.svg");
+}
+
+.piece._w.q {
+  background-image: url("/static/images/pieces/wQ.svg");
+}
+
+.piece._w.k {
+  background-image: url("/static/images/pieces/wK.svg");
+}
+
+.piece._b.p {
+  background-image: url("/static/images/pieces/bP.svg");
+}
+
+.piece._b.n {
+  background-image: url("/static/images/pieces/bN.svg");
+}
+
+.piece._b.b {
+  background-image: url("/static/images/pieces/bB.svg");
+}
+
+.piece._b.r {
+  background-image: url("/static/images/pieces/bR.svg");
+}
+
+.piece._b.q {
+  background-image: url("/static/images/pieces/bQ.svg");
+}
+
+.piece._b.k {
+  background-image: url("/static/images/pieces/bK.svg");
+}

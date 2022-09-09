@@ -1,11 +1,14 @@
+@import url("/static/piece.css");
+
 .board {
-	--square-width: 8vm;
+	--square-width: 8vm; /* Browser compatibility */
 	--square-height: 8vm;
 	--square-width: 8vmin;
 	--square-height: 8vmin;
 }
 
-.square {
+.square,
+.piece {
 	width: var(--square-width);
 	height: var(--square-height);
 }

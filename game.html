@@ -26,16 +26,21 @@
 		<script src="/static/games.js"></script>
 		<script src="/static/board.js"></script>
 		<script>
+			function startGame(pieces) {
+				game.reconstructPieces(pieces);
+			}
+
       const params = new Proxy(new URLSearchParams(window.location.search), {
         get: (searchParams, prop) => searchParams.get(prop),
       });
+			let element = document.getElementsByClassName("board-wrapper")[0];
+			let game = board(element);
+
       fetch(validation_url + "/state/" + params.id.toString()).then(function(response) {
         return response.json();
       }).then(function(response) {
-        console.log(response)
-      })
-			let element = document.getElementsByClassName("board-wrapper")[0];
-			board(element);
+        startGame(response);
+      });
 		</script>
 	</body>
 </html>

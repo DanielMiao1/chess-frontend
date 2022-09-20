@@ -29,6 +29,9 @@ function board(element) {
 		squares: squares,
 		reconstructPieces: function(pieces) {
 			let pieces_element = document.getElementsByClassName("pieces")[0];
+			while (pieces_element.lastChild) {
+				pieces_element.removeChild(pieces_element.lastChild);
+			};
 			let piece;
 			for (let x of pieces) {
 				for (let y of x) {

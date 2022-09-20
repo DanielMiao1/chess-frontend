@@ -17,7 +17,7 @@
 
 .bullet {
 	background-repeat: no-repeat;
-  background-size: 50%;
+  background-size: 40%;
 	background-position: center;
   position: absolute;
 	background-image: url("/static/images/bullet.svg");
@@ -28,7 +28,15 @@
 }
 
 .square.dark {
-	background-color: #333;
+	background-color: #666;
+}
+
+.square.active {
+	background-color: rgba(0, 0, 0, 0.75);
+}
+
+.square.bullet-active {
+	background-color: rgba(0, 0, 0, 0.25);
 }
 
 .board {

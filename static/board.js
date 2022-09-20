@@ -1,16 +1,47 @@
-// function for removing/adding bullets
+function removeBullets(bullets_element) {
+	while (bullets_element.lastChild) {
+		bullets_element.removeChild(bullets_element.lastChild);
+	};
+
+	for (let x of document.getElementsByClassName("square")) {
+		if (x.classList.contains("active")) {
+			x.classList.remove("active");
+		};
+		if (x.classList.contains("bullet-active")) {
+			x.classList.remove("bullet-active");
+		};
+	};
+};
+
+function addBulletListeners(bullet, squares) {
+	bullet.addEventListener("mouseover", function() {
+		squares[bullet.dataset.square].classList.add("bullet-active");
+	});
+
+	bullet.addEventListener("mouseout", function() {
+		for (let x of document.getElementsByClassName("square")) {
+			if (x.classList.contains("bullet-active")) {
+				x.classList.remove("bullet-active");
+			};
+		};
+	})
+}
 
 function addPieceListeners(piece, squares) {
-	piece.addEventListener("click", function() {
+	piece.addEventListener("mousedown", function() {
 		let bullets_container = this.parentNode.parentNode.getElementsByClassName("bullets")[0];
 		let bullet;
+		removeBullets(bullets_container);
+		squares[this.dataset.square].classList.add("active")
 		for (let x of JSON.parse(this.parentNode.parentNode.dataset.moves)) {
 			if (x.from == this.dataset.square) {
 				bullet = document.createElement("div");
 				bullet.classList.add("bullet");
 				bullet.style.left = squares[x.to].offsetLeft + "px";
 				bullet.style.top = squares[x.to].offsetTop + "px";
-				bullets_container.appendChild(bullet)
+				bullet.dataset.square = x.to;
+				addBulletListeners(bullet, squares);
+				bullets_container.appendChild(bullet);
 			};
 		};
 	});
@@ -35,6 +66,9 @@ function board(element) {
 		square.classList.add("square");
 		square.classList.add((((Math.floor(square_index / 8) + (square_index % 8)) & 1) == 0) ? "light" : "dark");
 		square.dataset.index = index_to_file[square_index % 8] + (8 - Math.floor(square_index / 8)).toString();
+		square.addEventListener("click", function() {
+			removeBullets(this.parentNode.parentNode.getElementsByClassName("bullets")[0]);
+		});
 		squares_element.appendChild(square);
 		square_index++;
 		squares[square.dataset.index] = square;

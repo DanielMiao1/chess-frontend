@@ -5,12 +5,22 @@
 	--square-height: 8vm;
 	--square-width: 8vmin;
 	--square-height: 8vmin;
+	cursor: pointer;
 }
 
 .square,
-.piece {
+.piece,
+.bullet {
 	width: var(--square-width);
 	height: var(--square-height);
+}
+
+.bullet {
+	background-repeat: no-repeat;
+  background-size: 50%;
+	background-position: center;
+  position: absolute;
+	background-image: url("/static/images/bullet.svg");
 }
 
 .square.light {

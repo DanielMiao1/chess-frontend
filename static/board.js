@@ -26,8 +26,6 @@ function addBulletListeners(bullet, game) {
 		};
 	});
 
-	//TODO: click piece twice to show, then hide bullet(s)
-
 	bullet.addEventListener("click", function() {
 		let id = new Proxy(new URLSearchParams(window.location.search), {
 			get: (searchParams, prop) => searchParams.get(prop)
@@ -41,12 +39,23 @@ function addBulletListeners(bullet, game) {
 		};
 		request.setRequestHeader("Content-Type", "text/plain");
 		request.send(JSON.stringify({"move": this.dataset.move}));
+		for (let x of document.getElementsByClassName("piece")) {
+			if (x.dataset.square == this.dataset.from) {
+				x.style.left = game.squares[this.dataset.square].offsetLeft + "px";
+				x.style.top = game.squares[this.dataset.square].offsetTop + "px";
+			};
+		};
+		removeBullets(this.parentNode);
 	});
 };
 
 function addPieceListeners(piece, game) {
 	piece.addEventListener("mousedown", function() {
 		let bullets_container = this.parentNode.parentNode.getElementsByClassName("bullets")[0];
+		if (game.squares[this.dataset.square].classList.contains("active")) {
+			removeBullets(bullets_container);
+			return;
+		};
 		let bullet;
 		removeBullets(bullets_container);
 		game.squares[this.dataset.square].classList.add("active")
@@ -57,6 +66,7 @@ function addPieceListeners(piece, game) {
 				bullet.style.left = game.squares[x.to].offsetLeft + "px";
 				bullet.style.top = game.squares[x.to].offsetTop + "px";
 				bullet.dataset.square = x.to;
+				bullet.dataset.from = x.from;
 				bullet.dataset.move = x.san;
 				addBulletListeners(bullet, game);
 				bullets_container.appendChild(bullet);

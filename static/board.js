@@ -13,9 +13,9 @@ function removeBullets(bullets_element) {
 	};
 };
 
-function addBulletListeners(bullet, squares) {
+function addBulletListeners(bullet, game) {
 	bullet.addEventListener("mouseover", function() {
-		squares[bullet.dataset.square].classList.add("bullet-active");
+		game.squares[bullet.dataset.square].classList.add("bullet-active");
 	});
 
 	bullet.addEventListener("mouseout", function() {
@@ -24,30 +24,48 @@ function addBulletListeners(bullet, squares) {
 				x.classList.remove("bullet-active");
 			};
 		};
-	})
-}
+	});
 
-function addPieceListeners(piece, squares) {
+	//TODO: click piece twice to show, then hide bullet(s)
+
+	bullet.addEventListener("click", function() {
+		let id = new Proxy(new URLSearchParams(window.location.search), {
+			get: (searchParams, prop) => searchParams.get(prop)
+		}).id.toString();
+		let request = new XMLHttpRequest();
+		request.open("POST", validation_url + "/api/move/" + id, true);
+		request.onreadystatechange = function() {
+			if (request.readyState == request.DONE) {
+				game.poll_function(id, game);
+			};
+		};
+		request.setRequestHeader("Content-Type", "text/plain");
+		request.send(JSON.stringify({"move": this.dataset.move}));
+	});
+};
+
+function addPieceListeners(piece, game) {
 	piece.addEventListener("mousedown", function() {
 		let bullets_container = this.parentNode.parentNode.getElementsByClassName("bullets")[0];
 		let bullet;
 		removeBullets(bullets_container);
-		squares[this.dataset.square].classList.add("active")
+		game.squares[this.dataset.square].classList.add("active")
 		for (let x of JSON.parse(this.parentNode.parentNode.dataset.moves)) {
 			if (x.from == this.dataset.square) {
 				bullet = document.createElement("div");
 				bullet.classList.add("bullet");
-				bullet.style.left = squares[x.to].offsetLeft + "px";
-				bullet.style.top = squares[x.to].offsetTop + "px";
+				bullet.style.left = game.squares[x.to].offsetLeft + "px";
+				bullet.style.top = game.squares[x.to].offsetTop + "px";
 				bullet.dataset.square = x.to;
-				addBulletListeners(bullet, squares);
+				bullet.dataset.move = x.san;
+				addBulletListeners(bullet, game);
 				bullets_container.appendChild(bullet);
 			};
 		};
 	});
 };
 
-function board(element) {
+function board(element, poll_function) {
 	let board = document.createElement("div");
 	board.classList.add("board");
 	element.appendChild(board);
@@ -83,6 +101,7 @@ function board(element) {
 	return {
 		element: element,
 		squares: squares,
+		poll_function: poll_function,
 		reconstructPieces: function(pieces) {
 			let pieces_element = document.getElementsByClassName("pieces")[0];
 			while (pieces_element.lastChild) {
@@ -99,12 +118,13 @@ function board(element) {
 					piece.classList.add("_" + y.color);
 					piece.classList.add(y.type);
 					piece.dataset.square = y.square;
-					addPieceListeners(piece, this.squares);
+					addPieceListeners(piece, this);
 					pieces_element.appendChild(piece);
 					piece.style.left = this.squares[y.square].offsetLeft + "px";
 					piece.style.top = this.squares[y.square].offsetTop + "px";
 				};
 			};
+			removeBullets(this.element.getElementsByClassName("bullets")[0]);
 		},
 	};
 };

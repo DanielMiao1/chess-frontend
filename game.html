@@ -41,10 +41,10 @@
 		<script src="/static/game.js"></script>
 		<script>
 			const params = new Proxy(new URLSearchParams(window.location.search), {
-				get: (searchParams, prop) => searchParams.get(prop),
+				get: (searchParams, prop) => searchParams.get(prop)
 			});
 			let element = document.getElementsByClassName("board-wrapper")[0];
-			let game = board(element);
+			let game = board(element, poll);
 
 			startPolling(params.id.toString(), game)
 		</script>

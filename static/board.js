@@ -26,7 +26,7 @@ function addBulletListeners(bullet, game) {
 		};
 	});
 
-	bullet.addEventListener("click", function() {
+	bullet.addEventListener("mousedown", function() {
 		let id = new Proxy(new URLSearchParams(window.location.search), {
 			get: (searchParams, prop) => searchParams.get(prop)
 		}).id.toString();

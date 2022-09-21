@@ -1,5 +1,5 @@
-const validation_url = "https://validation.multiplayer-chess.gq";
-// const validation_url = "http://localhost:34874";
+// const validation_url = "https://validation.multiplayer-chess.gq";
+const validation_url = "http://localhost:34874";
 
 function newComputerGame() {
   let request = new XMLHttpRequest();

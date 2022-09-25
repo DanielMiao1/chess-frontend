@@ -4,7 +4,11 @@ function poll(id, game) {
 	request.setRequestHeader("Content-Type", "text/plain");
 	request.onreadystatechange = function() {
 		if (request.readyState == XMLHttpRequest.DONE && request.status < 400) {
-			let response = JSON.parse(request.responseText)
+			let response = JSON.parse(request.responseText);
+			if (response.auth) {
+				localStorage.auth_key = response.auth;
+				return poll(id, game);
+			};
 			if (!game.element.dataset.turn || !game.element.dataset.moves) {
 				game.element.dataset.turn = response.turn;
 			} else if (game.element.dataset.turn == response.turn) {
@@ -15,7 +19,7 @@ function poll(id, game) {
 			game.reconstructPieces(response.board);
 		};
 	};
-	request.send("{}");
+	request.send(localStorage.auth_key);
 };
 
 function startPolling(id, game) {

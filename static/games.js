@@ -1,4 +1,4 @@
-const validation_url = "https://validation.multiplayer-chess.gq";
+const validation_url = "https://validation.multiplayerchess.gq";
 // const validation_url = "http://localhost:34874";
 
 function newComputerGame() {
@@ -30,7 +30,7 @@ function newTwoPlayerGame() {
       popup_text.classList.add("popup-text")
       popup.appendChild(popup_text);
       let popup_link = document.createElement("p");
-      popup_link.innerHTML = `URL: https://www.multiplayer-chess.gq/game.html?id=${id}` // TODO: Change innerHTML
+      popup_link.innerHTML = `URL: https://www.multiplayerchess.gq/game.html?id=${id}` // TODO: Change innerHTML
       popup.appendChild(popup_link);
 
       localStorage.auth_key = response["auth_key"]
